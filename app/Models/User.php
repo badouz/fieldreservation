@@ -22,7 +22,15 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role',
+        'phone',
     ];
+    function reservations(){
+        return $this->hasMany(Reservation::class);
+    }
+    function fields(){
+        return $this->hasMany(Field::class);
+    }
 
     /**
      * The attributes that should be hidden for serialization.
